@@ -15,8 +15,7 @@ docker run -d \
 	-p 80:80 \
 	-e ZIMBRA_URL=yourzimbraurl.tld \
 	-e ZPUSH_URL=yourpublicurlforsyn.tld \
-	--name zpush
-	docker pull darkjeff/zpush-zimbra
+	--name zpush darkjeff/zpush-zimbra
 ```
 
 ## Configuration
