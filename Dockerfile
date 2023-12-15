@@ -10,7 +10,7 @@ ENV ZPUSH_URL zpush_default
 
 # Install zpush
 RUN cd /var/www/html && \
- 	curl -L "https://github.com/Z-Hub/Z-Push/archive/refs/tags/${VERSIONFULL}.tar.gz" | tar --strip-components=1 -x -z 
+ 	curl -L "https://github.com/Z-Hub/Z-Push/archive/refs/tags/${VERSIONFULL}.tar.gz" | tar --strip-components=1 -x -z -C .
 
 # Add zimbra backend
 RUN cd /var/www/html/backend  && \
