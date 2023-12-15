@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:8.1-apache
 MAINTAINER Serge Ohl <docker@vizuweb.fr>
 
 ENV VERSION 2.7
@@ -10,7 +10,7 @@ ENV ZPUSH_URL zpush_default
 
 # Install zpush
 RUN cd /var/www/html && \
-	curl -L "http://download.z-push.org/final/${VERSION}/z-push-${VERSIONFULL}.tar.gz" | tar --strip-components=1 -x -z 
+ 	curl -L "https://github.com/Z-Hub/Z-Push/archive/refs/tags/${VERSIONFULL}.tar.gz" | tar --strip-components=1 -x -z 
 
 # Add zimbra backend
 RUN cd /var/www/html/backend  && \
