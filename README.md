@@ -2,10 +2,10 @@
 
 ## Get started
 
-It's very simple, first, get it :
+It's very simple, first, build it :
 
 ```bash
-docker pull darkjeff/zpush-zimbra
+docker build --tag="zpush-zimbra" .
 ```
 
 And run it :
@@ -15,7 +15,7 @@ docker run -d \
 	-p 80:80 \
 	-e ZIMBRA_URL=yourzimbraurl.tld \
 	-e ZPUSH_URL=yourpublicurlforsyn.tld \
-	--name zpush darkjeff/zpush-zimbra
+	--name zpush zpush-zimbra
 ```
 
 ## Configuration
