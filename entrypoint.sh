@@ -12,16 +12,6 @@ if [ ! -f  "${ZPUSH_CONFIG}.bkp" ]; then
     define('MAPI_SERVER', 'file:///var/run/zarafa');
     define('ZPUSH_URL', '');
     define('ZIMBRA_URL','');
-    define('ZIMBRA_USER_DIR','zimbra');
-    define('ZIMBRA_SYNC_CONTACT_PICTURES', true);
-    define('ZIMBRA_VIRTUAL_CONTACTS',true);
-    define('ZIMBRA_VIRTUAL_APPOINTMENTS',true);
-    define('ZIMBRA_VIRTUAL_NOTES',true);
-    define('ZIMBRA_VIRTUAL_TASKS',true);
-    define('ZIMBRA_IGNORE_EMAILED_CONTACTS',true);
-    define('ZIMBRA_HTML',true);
-    define('ZIMBRA_ENFORCE_VALID_EMAIL',false);
-    define('ZIMBRA_SMART_FOLDERS',false);
 EOF
 fi
 
@@ -44,6 +34,7 @@ sed -i "/ZIMBRA_URL/s/'[^']*'/'$ZIMBRA_URL_PROTO$ZIMBRA_URL'/2" $ZPUSH_CONFIG
 
 # Set timezone if exist
 if  [ ! -z $TIMEZONE ]; then  
+    TIMEZONE=$(echo "$TIMEZONE" | sed 's/\//\\\//g')
     sed -i "/TIMEZONE/s/'[^']*'/'$TIMEZONE'/2" $ZPUSH_CONFIG
 fi
 

@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  zpush-zimbra:
+    container_name: zpush-zimbra
+    restart: always
+    build: .
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data:/var/lib/z-push
+    environment:
+      - TZ=America/New_York
+      - TIMEZONE=America/New_York
+      - ZIMBRA_URL=
+      - ZPUSH_URL=
+    ports:
+      - "80:80"
